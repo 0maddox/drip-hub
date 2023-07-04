@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: drip_hub_project_production
-  username: drip_hub_project
-  password: <%= ENV["DRIP_HUB_PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
