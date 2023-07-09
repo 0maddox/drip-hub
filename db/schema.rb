@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_222257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cloths", force: :cascade do |t|
+  create_table "clothes", force: :cascade do |t|
     t.string "size"
     t.string "type"
     t.string "price"

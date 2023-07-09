@@ -5,9 +5,9 @@ export default function CallToAction() {
   return (
 
     <section className="call-action">
-      <h4>Be where you want to be on time</h4>
+      <h4>Drip is eternal</h4>
       <p>
-        <Link className="btn btn-oval" to="/register">Book your ride</Link>
+        <Link className="btn btn-oval" to="/register">Reserve this outfit</Link>
       </p>
     </section>
 

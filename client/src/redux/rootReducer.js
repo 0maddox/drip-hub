@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import carItemReducer from './carItem/carItemReducer';
-import carReducer from './cars/carReducer';
+import clothItemReducer from './clothItem/clothItemReducer';
+import clothReducer from './clothes/clothReducer';
 import userReducer from './users/userReducer';
 import userRegisterReducer from './users/userRegisterReducer';
 import favouriteReducer from './favourites/favouriteReducer';
 import getFavReducer from './favourites/getFavReducer';
 
 const rootReducer = combineReducers({
-  cars: carReducer,
-  carItem: carItemReducer,
+  clothes: clothReducer,
+  clothItem: clothItemReducer,
   user: userReducer,
   signup: userRegisterReducer,
   favourites: favouriteReducer,

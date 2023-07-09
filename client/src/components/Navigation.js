@@ -10,7 +10,7 @@ export default function Navigation() {
 
   return (
     <Navbar collapseOnSelect expand="sm">
-      <Navbar.Brand href="/"><img className="logo" src={logo} alt="Car Rentals" /></Navbar.Brand>
+      <Navbar.Brand href="/"><img className="logo" src={logo} alt="Drip Hub" /></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto" />
@@ -27,8 +27,8 @@ export default function Navigation() {
               )
               : (
                 <>
-                  <Link className="nav-link white" to="/cars">CARS</Link>
-                  <Link className="nav-link white" to="/favourites">Favourite Cars</Link>
+                  <Link className="nav-link white" to="/clothes">Clothes</Link>
+                  <Link className="nav-link white" to="/favourites">Favourite Clothes</Link>
                   <Link className="nav-link white" to="/logout">
                     LOGOUT
                     {' '}

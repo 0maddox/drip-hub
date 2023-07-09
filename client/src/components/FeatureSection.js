@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import car from '../imgs/feature-ride.png';
+import cloth from '../imgs/cloth.png';
 
 export default function FeatureSection() {
   return (
@@ -11,11 +11,10 @@ export default function FeatureSection() {
         </Col>
         <Col sm={6} className="pt-5">
           <h4 className="about-section__left-title pt-5">
-            Best rides for your trips
+            Best outfits for you
           </h4>
           <p className="about-section__desc">
-            More than hundreds of rides at your disposal. Only the best and checked with owners.
-            We will find best place for you and conditions for a safe parking.
+            More than a million stores at your disposal but we offer quality and our services are quick and reliable.we offer delivery and pickups
           </p>
           <p>
             <a href="#register" className="btn btn-oval">

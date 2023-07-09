@@ -6,8 +6,8 @@ import {
     loading: false,
     login: false,
     user: {},
-    token: localStorage.getItem('CarRentalsToken'),
-    username: '' || localStorage.getItem('CarRentalsUser'),
+    token: localStorage.getItem('DripHubToken'),
+    username: '' || localStorage.getItem('DripHubUser'),
     error: '',
   };
   
@@ -24,8 +24,8 @@ import {
           loading: false,
           login: true,
           user: action.payload,
-          token: localStorage.setItem('CarRentalsToken', action.payload.token),
-          username: localStorage.setItem('CarRentalsUser', action.payload.username),
+          token: localStorage.setItem('DripHubToken', action.payload.token),
+          username: localStorage.setItem('DripHubUser', action.payload.username),
           error: '',
         };
       case REGISTER_FAILURE:

@@ -35,13 +35,13 @@ function LoginContainer({ logUserIn, userData }) {
     ? (
       <>
         <h2 className="about-section__primary">Sign in</h2>
-        <p className="mb-3">Hello there! Sign in and book your ride</p>
+        <p className="mb-3">Hello there! Sign in and shop</p>
         <p className="text-danger">{ error}</p>
         <FormElement username={username} password={password} type="Sign in" handleSubmit={handleLogin} />
       </>
     )
     : (
-      <Redirect to="/cars" />
+      <Redirect to="/clothes" />
     );
 }
 

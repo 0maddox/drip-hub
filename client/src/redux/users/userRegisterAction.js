@@ -25,7 +25,7 @@ export const registerUser = data => function (dispatch) {
     .then(response => {
       const { data } = response;
       dispatch(userRegisterSuccess(data));
-      window.location.href = '/cars';
+      window.location.href = '/clothes';
     })
     .catch(error => {
       dispatch(userRegisterFailure(error.response.data.error));

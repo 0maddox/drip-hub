@@ -36,7 +36,7 @@ function RegisterContainer({ userData, signupUser }) {
     ? (
       <>
         <h2 className="about-section__primary">Sign up</h2>
-        <p className="mb-3">Hello there! Sign up and book your ride</p>
+        <p className="mb-3">Hello there! Sign up and shop with us</p>
         <p className="text-danger">{ error}</p>
         <FormElement username={username} password={password} type="Sign up" handleSubmit={handleRegistration} />
       </>

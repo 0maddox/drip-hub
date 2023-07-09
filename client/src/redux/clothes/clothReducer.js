@@ -1,32 +1,32 @@
 import {
-    FETCH_CARS_SUCCESS, FETCH_CARS_REQUEST, FETCH_CARS_FAILURE,
-  } from './carTypes';
+    FETCH_clothes_SUCCESS, FETCH_clothes_REQUEST, FETCH_clothes_FAILURE,
+  } from './clothTypes';
   
   const initialState = {
     loading: false,
-    cars: [],
+    clothes: [],
     error: '',
   };
   
-  const carReducer = (state = initialState, action) => {
+  const clothReducer = (state = initialState, action) => {
     switch (action.type) {
-      case FETCH_CARS_REQUEST:
+      case FETCH_CLOTHES_REQUEST:
         return {
           ...state,
           loading: true,
         };
-      case FETCH_CARS_SUCCESS:
+      case FETCH_CLOTHES_SUCCESS:
         return {
           ...state,
           loading: false,
-          cars: action.payload,
+          clothes: action.payload,
           error: '',
         };
-      case FETCH_CARS_FAILURE:
+      case FETCH_CLOTHES_FAILURE:
         return {
           ...state,
           loading: false,
-          cars: [],
+          clothes: [],
           error: action.payload,
         };
       default:
@@ -34,4 +34,4 @@ import {
     }
   };
   
-  export default carReducer;
+  export default clothReducer;

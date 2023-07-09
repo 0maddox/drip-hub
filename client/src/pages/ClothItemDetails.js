@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Footer from '../components/Footer';
-import CarItemContainer from '../container/CarItemContainer';
+import ClothItemContainer from '../container/ClothItemContainer';
 
-export default function CarItemDetail() {
+export default function ClothItemDetail() {
   return (
     <Container>
-      <CarItemContainer />
+      <ClothItemContainer />
       <Footer />
     </Container>
   );

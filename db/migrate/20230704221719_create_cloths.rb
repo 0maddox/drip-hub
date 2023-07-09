@@ -1,6 +1,6 @@
 class CreateCloths < ActiveRecord::Migration[7.0]
   def change
-    create_table :cloths do |t|
+    create_table :clothes do |t|
       t.string :size
       t.string :type
       t.string :price

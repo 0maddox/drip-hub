@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 import { ScaleLoader } from 'react-spinners';
 import { Redirect } from 'react-router-dom';
 import Modal from 'react-awesome-modal';
-import CarItem from '../components/CarItem';
-import { fetchCars, addFavourites, removeFavourites } from '../redux/actions';
+import ClothItem from '../components/ClothItem';
+import { fetchClothes, addFavourites, removeFavourites } from '../redux/actions';
 
-function CarContainer({ carData, getCars }) {
+function ClothContainer({ clothData, getClothes }) {
   const [visible, setVisible] = useState(false);
   const openModal = () => setVisible(true);
   const closeModal = () => setVisible(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getCars();
+    getClothess();
     closeModal();
   }, []);
 
@@ -23,8 +23,8 @@ function CarContainer({ carData, getCars }) {
   const favState = useSelector(state => state.favourites);
 
   const handleFavourite = (id, favourit) => {
-    const carInfo = {
-      car_id: id,
+    const clothInfo = {
+      cloth_id: id,
     };
 
     if (favourit === 'Yes') {
@@ -34,27 +34,27 @@ function CarContainer({ carData, getCars }) {
       dispatch(addFavourites(carInfo));
       openModal();
     }
-    getCars();
+    getClothes();
   };
 
   // eslint-disable-next-line no-nested-ternary
-  return carData.loading ? (
+  return clothData.loading ? (
     <h2 className="text-center pt-5">
       <ScaleLoader size={16} color="orange" />
     </h2>
   ) : token === undefined || token === 'undefined' ? (
     <h2 className="text-center pt-5 white">
-      { carData.error }
+      { clothData.error }
       <Redirect to="/login" />
     </h2>
   ) : (
     <Container className="bg-dark">
       <div className="mt-5 d-flex flex-wrap justify-content-center">
-        { carData.cars.map(carInfo => (
-          <CarItem
-            key={carInfo.id}
-            car={carInfo}
-            handleFavourite={() => handleFavourite(carInfo.id, carInfo.fav)}
+        { clothData.clothess.map(clothInfo => (
+          <ClothItem
+            key={clothInfo.id}
+            cloth={clothInfo}
+            handleFavourite={() => handleFavourite(clothInfo.id, clothInfo.fav)}
           />
         )) }
         <Modal visible={visible} width="300" height="100" effect="fadeInUp" onClickAway={() => closeModal()}>
@@ -69,26 +69,26 @@ function CarContainer({ carData, getCars }) {
 }
 
 const mapStateToProps = state => ({
-  carData: state.cars,
+  clothData: state.clothes,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCars: () => dispatch(fetchCars()),
+  getClothess: () => dispatch(fetchClothes()),
 });
 
 CarContainer.propTypes = {
-  carData: PropTypes.shape({
+  clothData: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    cars: PropTypes.instanceOf(Array).isRequired,
+    clothes: PropTypes.instanceOf(Array).isRequired,
     error: PropTypes.string,
     token: PropTypes.string,
   }),
-  getCars: PropTypes.func.isRequired,
+  getclothess: PropTypes.func.isRequired,
 };
 
-CarContainer.defaultProps = {
-  carData: {
-    cars: [],
+ClothContainer.defaultProps = {
+  clothData: {
+    clothes: [],
     loading: false,
   },
 };

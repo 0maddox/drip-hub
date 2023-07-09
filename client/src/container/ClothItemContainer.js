@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
-import CarDetails from '../components/CarDetails';
-import { fetchCarItem } from '../redux/actions';
+import ClothDetails from '../components/ClothDetails';
+import { fetchClothItem } from '../redux/actions';
 
-function CarItemContainer() {
+function ClothItemContainer() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const carItem = useSelector(state => state.carItem);
-  const loading = useSelector(state => state.carItem.loading);
+  const clothItem = useSelector(state => state.clothItem);
+  const loading = useSelector(state => state.clothItem.loading);
   useEffect(() => {
-    dispatch(fetchCarItem(id));
+    dispatch(fetchClothItem(id));
   }, []);
 
   return loading ? (
@@ -19,8 +19,8 @@ function CarItemContainer() {
       <ScaleLoader size={16} color="white" />
     </h2>
   ) : (
-    <CarDetails car={carItem.car} />
+    <ClothDetails cloth={clothItem.cloth} />
   );
 }
 
-export default CarItemContainer;
+export default ClothItemContainer;

@@ -4,40 +4,40 @@ import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { ScaleLoader } from 'react-spinners';
 import { Redirect } from 'react-router-dom';
-import CarItem from '../components/CarItem';
+import ClothItem from '../components/ClothItem';
 import { fetchFavourites } from '../redux/actions';
 
-function FavouritesContainer({ carData, getCars }) {
+function FavouritemsContainer({ clothData, getClothes }) {
   useEffect(() => {
-    getCars();
+    getClothes();
   }, []);
   const token = useSelector(state => state.user.token);
 
   const handleFavourite = id => {
     // eslint-disable-next-line no-unused-vars
-    const carInfo = {
-      car_id: id,
+    const clothInfo = {
+      cloth_id: id,
     };
   };
 
   // eslint-disable-next-line no-nested-ternary
-  return carData.loading ? (
+  return clothData.loading ? (
     <h2 className="text-center pt-5">
       <ScaleLoader size={16} color="orange" />
     </h2>
   ) : token === undefined || token === 'undefined' ? (
     <h2 className="text-center pt-5 white">
-      { carData.error }
+      { clothData.error }
       <Redirect to="/login" />
     </h2>
   ) : (
     <Container className="bg-dark">
       <div className="mt-5 d-flex flex-wrap justify-content-center">
-        { carData.cars.map(carInfo => (
-          <CarItem
-            key={carInfo.id}
-            car={carInfo}
-            handleFavourite={() => handleFavourite(carInfo.id)}
+        { clothData.clothes.map(clothInfo => (
+          <ClothItem
+            key={clothInfo.id}
+            cloth={clothInfo}
+            handleFavourite={() => handleFavourite(clothInfo.id)}
           />
         )) }
       </div>
@@ -46,26 +46,26 @@ function FavouritesContainer({ carData, getCars }) {
 }
 
 const mapStateToProps = state => ({
-  carData: state.getFavs,
+  clothData: state.getFavs,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCars: () => dispatch(fetchFavourites()),
+  getClothes: () => dispatch(fetchFavourites()),
 });
 
 FavouritesContainer.propTypes = {
-  carData: PropTypes.shape({
+  clothData: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    cars: PropTypes.instanceOf(Array).isRequired,
+    clothes: PropTypes.instanceOf(Array).isRequired,
     error: PropTypes.string,
     token: PropTypes.string,
   }),
-  getCars: PropTypes.func.isRequired,
+  getClothes: PropTypes.func.isRequired,
 };
 
 FavouritesContainer.defaultProps = {
-  carData: {
-    cars: [],
+  clothData: {
+    clothes: [],
     loading: false,
   },
 };

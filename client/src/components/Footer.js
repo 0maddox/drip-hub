@@ -12,13 +12,13 @@ export default function Footer() {
         </Link>
       </h2>
       <p>
-        Plot 1 Unit F, Ewet Housing Estate
+        Plot 2 Unit F, Dell Riverside
         {' '}
         <br />
-        +2348035336234
+        +2547376744
       </p>
       <p>
-        Car Rentals
+        Drip Hub
         { ' ' }
         {new Date().getFullYear()}
         . All rights reserved

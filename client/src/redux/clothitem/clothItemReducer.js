@@ -1,32 +1,32 @@
 import {
-    FETCH_CAR_ITEM_REQUEST, FETCH_CAR_ITEM_SUCCESS, FETCH_CAR_ITEM_FAILURE,
-  } from '../cars/carTypes';
+    FETCH_CLOTH_ITEM_REQUEST, FETCH_CLOTH_ITEM_SUCCESS, FETCH_CLOTH_ITEM_FAILURE,
+  } from '../clothes/clothTypes';
   
   const initialState = {
     loading: false,
-    car: {},
+    cloth: {},
     error: '',
   };
   
-  const carItemReducer = (state = initialState, action) => {
+  const clothItemReducer = (state = initialState, action) => {
     switch (action.type) {
-      case FETCH_CAR_ITEM_REQUEST:
+      case FETCH_CLOTH_ITEM_REQUEST:
         return {
           ...state,
           loading: true,
         };
-      case FETCH_CAR_ITEM_SUCCESS:
+      case FETCH_CLOTH_ITEM_SUCCESS:
         return {
           ...state,
           loading: false,
-          car: action.payload,
+          cloth: action.payload,
           error: '',
         };
-      case FETCH_CAR_ITEM_FAILURE:
+      case FETCH_CLOTH_ITEM_FAILURE:
         return {
           ...state,
           loading: false,
-          car: {},
+          cloth: {},
           error: action.payload,
         };
       default:
@@ -34,4 +34,4 @@ import {
     }
   };
   
-  export default carItemReducer;
+  export default clothItemReducer;

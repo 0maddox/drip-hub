@@ -1,32 +1,32 @@
 import axios from 'axios';
 import {
-  FETCH_CAR_ITEM_REQUEST, FETCH_CAR_ITEM_SUCCESS, FETCH_CAR_ITEM_FAILURE,
-} from '../cars/carTypes';
+  FETCH_CLOTH_ITEM_REQUEST, FETCH_CLOTH_ITEM_SUCCESS, FETCH_CLOTH_ITEM_FAILURE,
+} from '../cloth/clothTypes';
 
-export const fetchCarItemRequest = () => ({
-  type: FETCH_CAR_ITEM_REQUEST,
+export const fetchClothItemRequest = () => ({
+  type: FETCH_CLOTH_ITEM_REQUEST,
 });
 
-export const fetchCarItemSuccess = cars => ({
-  type: FETCH_CAR_ITEM_SUCCESS,
-  payload: cars,
+export const fetchClothItemSuccess = clothes => ({
+  type: FETCH_CLOTH_ITEM_SUCCESS,
+  payload: clothes,
 });
 
-export const fetchCarItemFailure = error => ({
-  type: FETCH_CAR_ITEM_FAILURE,
+export const fetchClothItemFailure = error => ({
+  type: FETCH_CLOTH_ITEM_FAILURE,
   payload: error,
 });
 
 // eslint-disable-next-line func-names
-export const fetchCarItem = id => function (dispatch) {
-  dispatch(fetchCarItemRequest());
+export const fetchClothItem = id => function (dispatch) {
+  dispatch(fetchClothItemRequest());
   axios
-    .get(`/cars/${id}`, { mode: 'cors' })
+    .get(`/clothes/${id}`, { mode: 'cors' })
     .then(response => {
       const { data } = response;
-      dispatch(fetchCarItemSuccess(data));
+      dispatch(fetchClothItemSuccess(data));
     })
     .catch(error => {
-      dispatch(fetchCarItemFailure(error.response.data.error));
+      dispatch(fetchClothItemFailure(error.response.data.error));
     });
 };

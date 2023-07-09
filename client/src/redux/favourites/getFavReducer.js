@@ -2,7 +2,7 @@ import * as fav from './favouriteTypes';
 
 const initialState = {
   loading: false,
-  cars: [],
+  clothes: [],
   error: '',
 };
 
@@ -17,14 +17,14 @@ const getFavReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        cars: action.payload,
+        clothes: action.payload,
         error: '',
       };
     case fav.FETCH_FAVORITE_FAILURE:
       return {
         ...state,
         loading: false,
-        cars: [],
+        clothes: [],
         error: action.payload,
       };
     default:
